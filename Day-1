@@ -1,0 +1,37 @@
+
+Day - 1️⃣: Understanding Terraform - What It Is & Why It Matters in Cloud Engineering
+
+As Infrastructure-as-Code (IaC) becomes the backbone of modern cloud operations, one tool consistently stands out: Terraform.
+
+🔥 What is Terraform?
+Terraform is an open-source IaC tool that lets you build, change, and manage cloud infrastructure using code.
+
+ Instead of clicking around dashboards, you define everything in simple configuration files and Terraform automates the rest.
+
+❓ Why do we need Terraform?
+✔ Automation – No more manual setup. Deploy entire environments in minutes.
+ ✔ Consistency – Same code = same infrastructure every time.
+ ✔ Version control – Track and review infra change like application code.
+ ✔ Multi - cloud support – Works across AWS, Azure, GCP, Kubernetes, GitHub, and more.
+ ✔ Scalability – Easily replicate environments (dev, staging, prod) with the same templates.
+
+Terraform makes infrastructure predictable, repeatable, and safe.
+
+❓ How is Terraform different from other tools?
+
+Terraform vs CloudFormation:
+
+✅ Terraform works across multiple cloud providers
+❌ CloudFormation is AWS-only
+
+
+Terraform vs Ansible:
+
+✅ Terraform provisions infrastructure
+❌ Ansible configures applications inside the infrastructure
+
+
+Terraform vs Pulumi:
+
+✅Terraform uses HCL (simple and declarative)
+❌ Pulumi uses languages like Python/TS (flexible but more complex)
