@@ -1,0 +1,119 @@
+Creating an AWS S3 Bucket Using Terraform — Complete Step-by-Step Guide
+
+Infrastructure as Code (IaC) simplifies cloud resource management, and Terraform is one of the most powerful tools available for provisioning infrastructure reliably and repeatably.
+In this tutorial, you’ll learn how to configure AWS credentials, initialize Terraform, deploy an S3 bucket, inspect the state, and finally clean up resources.
+
+🧩 Step 1: Configure AWS Credentials
+
+Before Terraform can interact with AWS, export your credential environment variables:
+
+export AWS_ACCESS_KEY_ID="your-access-key"
+export AWS_SECRET_ACCESS_KEY="your-secret-key"
+export AWS_DEFAULT_REGION="eu-north-1"
+
+
+These allow Terraform to authenticate with AWS securely without exposing secrets in files.
+
+🧱 Step 2: Create Your Terraform Configuration
+
+Create a file (e.g., main.tf) and add the following:
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "eu-north-1"
+}
+
+# create an S3 bucket
+resource "aws_s3_bucket" "SampleAWSTerraform" {
+  bucket = "awsterrafrombucket"
+
+  tags = {
+    Name        = "Sample Bucket"
+    Environment = "Test"
+  }
+}
+
+
+This configuration specifies:
+
+AWS provider configuration
+
+Region (eu-north-1)
+
+An S3 bucket with tags
+
+⚙️ Step 3: Initialize Terraform
+
+Before running any Terraform commands, initialize your working directory:
+
+terraform init
+
+
+This downloads the AWS provider and prepares Terraform to run.
+
+🔍 Step 4: Validate the Configuration
+
+Ensure your Terraform code syntax is correct:
+
+terraform validate
+
+
+If everything is valid, you’ll get:
+
+Success! The configuration is valid.
+
+📝 Step 5: Generate the Execution Plan
+
+Preview the changes Terraform will apply:
+
+terraform plan
+
+
+Terraform displays an execution plan showing that 1 resource will be created (your S3 bucket).
+This step allows you to confirm the expected changes.
+
+🚀 Step 6: Apply the Changes
+
+Deploy your infrastructure:
+
+terraform apply
+
+
+Terraform will ask for confirmation:
+
+Do you want to perform these actions?
+Enter a value: yes
+
+
+After typing yes, the S3 bucket will be created.
+
+You should see:
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+📄 Step 7: View the Current State
+
+To inspect the deployed resource:
+
+terraform show
+
+
+This displays everything Terraform is managing, including the S3 bucket details such as ARN, region, and tags.
+
+🧹 Step 8: Destroy the Resources
+
+When you're done and want to clean up:
+
+terraform destroy
+
+
+Confirm destruction with yes.
+Terraform removes all managed resources, ensuring a clean environment.
